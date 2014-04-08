@@ -12,11 +12,6 @@ var photoId;
 var user;
 var imageURI = null;
 
-// Common error function
-function ajaxError(xhr, textStatus, errorThrown){
-	console.log("Error fetching data\nStatus code: " + xhr.status + "\nStatus text: " + textStatus + "\nError thrown: " + errorThrown);
-}
-
 // Page change functions
 $("#listPage").on("pagebeforeshow", function(event){
 	getList();
@@ -44,7 +39,10 @@ function login(option){
 			pass: $("#pass").val()
 		},
 		success: loginSuccess,
-		error: ajaxError
+		error: function(xhr, textStatus, errorThrown){
+			console.log("Error fetching data\nStatus code: " + xhr.status + "\nStatus text: " + textStatus + "\nError thrown: " + errorThrown);
+			$("#message").html("Error: " + textStatus);
+		}
 	};
 	if(option == 1){
 		ajaxSettings.url = server + "/login.php";
@@ -85,7 +83,9 @@ function getList(){
 			photoList = result;
 			updateList();
 		},
-		error: ajaxError
+		error: function(xhr, textStatus, errorThrown){
+			console.log("Error fetching data\nStatus code: " + xhr.status + "\nStatus text: " + textStatus + "\nError thrown: " + errorThrown);
+		}
 	});
 }
 function updateList(){
