@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/jquery.mobile-1.4.2.min.js"></script>
+        <title>Photo Upload</title>
+    </head>
+    <body>
+		<!-- Login Page -->
+		<div data-role="page" id="loginPage">
+			<div data-role="main" class="ui-content">
+				<input type="text" id="user" placeholder="Username" maxlength="20">
+				<input type="password" id="pass" placeholder="password">
+				<input type="button" id="login" value="Login" onclick="login(1)">
+				<input type="button" id="register" value="Register" onclick="login(2)">
+				<p id="message"></p>
+			</div>
+		</div>
+		
+		<!-- List Page -->
+		<div data-role="page" id="listPage">
+			<div data-role="main">
+				<ul data-role="listview" id="list"></ul>
+			</div>
+			<div data-role="footer" style="text-align:center;" data-position="fixed" data-tap-toggle="false">
+				<a href="#uploadPage" class="ui-btn ui-icon-plus ui-btn-icon-left">Take new photo</a>
+			</div>
+		</div>
+		
+		<!-- View Page -->
+		<div data-role="page" id="viewPage">
+			<div data-role="header">
+			<a href="#" class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-rel="back">Back</a>
+				<h2 id="date"></h2>
+			</div>
+			<div data-role="main" class="ui-content" style="text-align: center;">
+				<p>Taken by <span id="name"></span></p>
+				<img id="image" width="100%">
+				<p id="comment"></p>
+			</div>
+		</div>
+		
+		<!-- Upload Page -->
+		<div data-role="page" id="uploadPage">
+			<div data-role="main" class="ui-content">
+				<img id="preview" width="100%">
+				<textarea id="newComment" placeholder="Comment"></textarea>
+				<div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+					<input type="button" value="Submit" onclick="upload()">
+					<input type="button" value="New picture" onclick="captureImage()">
+					<a href="#" class="ui-btn" data-rel="back">Back</a>
+				</div>
+			</div>
+		</div>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
