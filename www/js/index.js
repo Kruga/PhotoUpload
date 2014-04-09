@@ -6,7 +6,7 @@ function onDeviceReady(){
 }
 
 // Global variables
-var server = "http://10.42.33.103/PhotoUpload";
+var server = "http://10.42.33.110/PhotoUpload";
 var photoList;
 var photoId;
 var user;
@@ -41,7 +41,7 @@ function login(option){
 		success: loginSuccess,
 		error: function(xhr, textStatus, errorThrown){
 			console.log("Error fetching data\nStatus code: " + xhr.status + "\nStatus text: " + textStatus + "\nError thrown: " + errorThrown);
-			$("#message").html("Error: " + textStatus);
+			$("#message").html("Connection error");
 		}
 	};
 	if(option == 1){
