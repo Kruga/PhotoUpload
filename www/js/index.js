@@ -6,7 +6,7 @@ function onDeviceReady(){
 }
 
 // Global variables
-var server = "http://10.42.33.110/PhotoUpload";
+var server = "http://10.42.33.108/PhotoUpload";
 var photoList;
 var photoId;
 var user;
@@ -100,10 +100,10 @@ function updateList(){
 // uploadPage functions
 function captureImage(){
 	var optionsCam = { 					// Adjust camera options
-		quality: 75,
-		destinationType: Camera.DestinationType.FILE_URI, 
-		correctOrientation: true, 
-		targetWidth: 500,					// Aspect ratio is kept
+		quality: 75,					// iOS quirk: Set quality below 50 to avoid memory errors on some devices
+		destinationType: Camera.DestinationType.FILE_URI,
+		correctOrientation: true,
+		targetWidth: 500,					// Aspect ratio remains constant
 		targetHeight: 500
 	};
 	if(pgReady)
