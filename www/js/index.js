@@ -6,7 +6,7 @@ function onDeviceReady(){
 }
 
 // Global variables
-var server = "http://10.42.33.108/PhotoUpload";
+var server = "http://10.42.23.130/PhotoUpload";
 var photoList;
 var photoId;
 var user;
